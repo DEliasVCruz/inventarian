@@ -1,0 +1,17 @@
+[Producto]
+    *id_producto {label: "uuid, not null"}
+    +categoria {label: "label, not null"}
+    largo {label: "float"}                      # Puede ser null
+    ancho {label: "float"}                      # Puede ser null
+    espesor {label: "float, [tubos, codos]"}    # 1.5, 1.2, 1.0
+    acabado {label: "varchar, [tubos, codos]"}  # Brillante, Satinado
+    calidad {label: "int, not null"}            # Puede ser 201 o 304
+    cantidad {label: "int, not null"}
+
+[Categoria]
+    *categoria_id {label: "int, not null"}
+    nombre {label: "varchar, not null"}     # tubo, barras, angulo, platina, codos
+    forma {label: "varchar"}                # Cuadrado, Redondo, Recangular
+    dimensiones {label: "int"}              # Si tiene 1 o 2 dimensiones
+
+Producto *--1 Categoria
